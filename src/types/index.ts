@@ -7,11 +7,13 @@ export type Project = {
   demoLink?: string;
   demoLink2?: string;
   codeLink?: string;
-  coverImage: string;
+  coverImage?: string;
+  thumbnail?: string;
   imageList?: string[];
   organization: string;
   projectType: ProjectType;
-  technologies: string[];
+  technologies?: string[];
+  otherImagesFolderName?: string;
 };
 
 export type Skill = {

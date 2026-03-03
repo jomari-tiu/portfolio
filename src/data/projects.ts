@@ -2,6 +2,87 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: 15,
+    title: "BLGF RPIS Local",
+    description:
+      "A Local Revenue and Property Information System for managing various aspects of local government finance operations. The system includes modules for land and property records, tax schedules, machinery and building assessments, and tax exemptions. It also supports treasury functions such as billing, collection, delinquency tracking, auctions, and tax redemption. The platform provides a centralized dashboard for administrators to efficiently maintain records, monitor financial activities, and generate reports for local taxation and property management.",
+    thumbnail: "/images/projects/blgf/page-1.jpg",
+    organization: "Multisys Corporation",
+    projectType: "web-app",
+    otherImagesFolderName: "blgf",
+    imageList: [
+      "/images/projects/blgf/page-1.jpg",
+      "/images/projects/blgf/page-2.jpg",
+      "/images/projects/blgf/page-3.jpg",
+      "/images/projects/blgf/page-4.jpg",
+      "/images/projects/blgf/page-5.jpg",
+      "/images/projects/blgf/page-6.jpg",
+      "/images/projects/blgf/page-7.jpg",
+      "/images/projects/blgf/page-8.jpg",
+      "/images/projects/blgf/page-9.jpg",
+      "/images/projects/blgf/page-10.jpg",
+      "/images/projects/blgf/page-11.jpg",
+      "/images/projects/blgf/page-12.jpg",
+      "/images/projects/blgf/page-13.jpg",
+      "/images/projects/blgf/page-14.jpg",
+      "/images/projects/blgf/page-15.jpg",
+      "/images/projects/blgf/page-16.jpg",
+      "/images/projects/blgf/page-17.jpg",
+      "/images/projects/blgf/page-18.jpg",
+    ],
+  },
+  {
+    id: 16,
+    title: "Multistore",
+    description:
+      "The Multistore system is an admin platform for managing multiple online stores and their performance. It provides an overview of daily stats such as operating profit, merchant activity, order status, abandoned carts, and new signups. The dashboard includes quick links to live store monitoring, reports, and onboarding. It features sections for analytics, distributors, merchants, customers, discounts, accounting, audit logs, CRM, and partners—enabling admins to track transactions, sales, and revenue trends easily.\n\nPlatforms: \n-Core (Super Admin and Merchant CMS).\n-Marketplace (Merchant Store).\n-Portal (Where customer want to be a merchant to register)",
+    thumbnail: "/images/projects/multistore/page-1.jpg",
+    organization: "Multisys Corporation",
+    projectType: "web-app",
+    otherImagesFolderName: "multistore",
+    imageList: [
+      "/images/projects/multistore/page-1.jpg",
+      "/images/projects/multistore/page-2.jpg",
+      "/images/projects/multistore/page-3.jpg",
+    ],
+  },
+
+  {
+    id: 17,
+    title: "DMS Smart Kapartner",
+    thumbnail: "/images/projects/dms/page-1.jpg",
+    description:
+      "The KA-PARTNER Portal is a centralized web-based platform designed for managing electronic load dispensing and retail operations. It allows branch administrators to process mobile load sales for various telecom providers, track wallet balances, monitor transaction performance, and manage retailer accounts. Users can easily select promos, input subscriber numbers, and complete sales transactions. The dashboard provides real-time metrics such as sales amounts, retailer rankings, and load wallet status, while offering tools for profile management, reporting, and customer support. This system ensures efficient digital load distribution and operational visibility for load dealers and branch-level admins.\n\nPlatforms: \n-Core.\n-Portal.\n-Mobile App",
+    organization: "Multisys Corporation",
+    projectType: "web-app",
+    otherImagesFolderName: "dms",
+    imageList: [
+      "/images/projects/dms/page-1.jpg",
+      "/images/projects/dms/page-2.jpg",
+      "/images/projects/dms/page-3.jpg",
+      "/images/projects/dms/page-4.jpg",
+    ],
+  },
+  {
+    id: 18,
+    title: "SEC ACES",
+    description:
+      "This system is a webinar management platform designed for administrators to schedule, manage, and monitor online events. From the central dashboard, admins can add webinar schedules, view upcoming events in a calendar view, and access detailed session information including type, registration period, price, participant quota, and meeting links. Additional modules support attendance tracking, exam setup, report generation, registrant management, and content control. The interface also features access control, logs, and versioning—enabling full oversight and streamlined operations for hosting structured online learning or certification programs.\n\nPlatforms: \n-Core.\n-Exam.\n-Portal",
+    thumbnail: "/images/projects/sec/page-1.jpg",
+    organization: "Multisys Corporation",
+    projectType: "web-app",
+    otherImagesFolderName: "sec",
+    imageList: [
+      "/images/projects/sec/page-1.jpg",
+      "/images/projects/sec/page-2.jpg",
+      "/images/projects/sec/page-3.jpg",
+      "/images/projects/sec/page-4.jpg",
+      "/images/projects/sec/page-5.jpg",
+      "/images/projects/sec/page-6.jpg",
+      "/images/projects/sec/page-7.jpg",
+    ],
+  },
+  {
     id: 0,
     title: "Boroucrest",
     description:

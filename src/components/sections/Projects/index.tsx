@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ChevronRight } from "lucide-react";
-import { SectionContainer, SectionHeading } from "@/components/ui/SectionContainer";
+import {
+  SectionContainer,
+  SectionHeading,
+} from "@/components/ui/SectionContainer";
 import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
 import { projects } from "@/data/projects";
-import type { ProjectType } from "@/types";
+import type { ProjectType, Project } from "@/types";
+import { ProjectModal } from "./ProjectModal";
 
 type Filter = "all" | ProjectType;
 
@@ -28,9 +32,12 @@ const cardVariants = {
 
 export function ProjectsSection() {
   const [filter, setFilter] = useState<Filter>("all");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filtered =
-    filter === "all" ? projects : projects.filter((p) => p.projectType === filter);
+    filter === "all"
+      ? projects
+      : projects.filter((p) => p.projectType === filter);
 
   return (
     <SectionContainer id="projects" className="bg-[#0d0d0d]">
@@ -50,7 +57,7 @@ export function ProjectsSection() {
               "px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer",
               filter === value
                 ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20"
-                : "text-zinc-500 hover:text-zinc-300 border border-white/10 hover:border-white/20"
+                : "text-zinc-500 hover:text-zinc-300 border border-white/10 hover:border-white/20",
             )}
           >
             {label}
@@ -77,12 +84,13 @@ export function ProjectsSection() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="group relative flex flex-col rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10"
+              onClick={() => setSelectedProject(project)}
+              className="group relative flex flex-col rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 cursor-pointer"
             >
               {/* Image */}
-              <div className="relative h-44 overflow-hidden flex-shrink-0 bg-black/40">
+              <div className="relative h-44 overflow-hidden shrink-0 bg-black/40">
                 <img
-                  src={project.coverImage}
+                  src={project.coverImage ?? project.thumbnail ?? ""}
                   alt={project.title}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
@@ -103,7 +111,7 @@ export function ProjectsSection() {
                       "text-xs font-semibold px-2.5 py-1 rounded-full",
                       project.projectType === "web-app"
                         ? "bg-indigo-500/80 text-white"
-                        : "bg-purple-500/80 text-white"
+                        : "bg-purple-500/80 text-white",
                     )}
                   >
                     {project.projectType === "web-app" ? "Web App" : "Website"}
@@ -117,18 +125,22 @@ export function ProjectsSection() {
                   <h3 className="text-white font-semibold text-base leading-tight group-hover:text-indigo-300 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-zinc-500 text-xs mt-1">{project.organization}</p>
+                  <p className="text-zinc-500 text-xs mt-1">
+                    {project.organization}
+                  </p>
                 </div>
 
                 {/* Tech badges */}
                 <div className="flex flex-wrap gap-1.5 flex-1">
-                  {project.technologies.slice(0, 4).map((tech) => (
+                  {project.technologies?.slice(0, 4).map((tech) => (
                     <Badge key={tech} variant="tech">
                       {tech}
                     </Badge>
                   ))}
-                  {project.technologies.length > 4 && (
-                    <Badge variant="tech">+{project.technologies.length - 4}</Badge>
+                  {(project.technologies?.length ?? 0) > 4 && (
+                    <Badge variant="tech">
+                      +{(project.technologies?.length ?? 0) - 4}
+                    </Badge>
                   )}
                 </div>
 
@@ -139,6 +151,7 @@ export function ProjectsSection() {
                       href={project.demoLink ?? project.demoLink2}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-indigo-400 transition-colors group/link"
                     >
                       <ExternalLink size={13} />
@@ -154,6 +167,7 @@ export function ProjectsSection() {
                       href={project.codeLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-white transition-colors ml-auto"
                     >
                       <Github size={13} />
@@ -166,6 +180,14 @@ export function ProjectsSection() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </SectionContainer>
   );
 }

@@ -1,18 +1,18 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Github,
   Linkedin,
   Mail,
   MapPin,
-  Send,
-  CheckCircle,
+  // Send,
+  // CheckCircle,
 } from "lucide-react";
 import {
   SectionContainer,
   SectionHeading,
 } from "@/components/ui/SectionContainer";
-import { Button } from "@/components/ui/Button";
+// import { Button } from "@/components/ui/Button";
 import { socialLinks, contactInfo } from "@/data/contact";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -22,19 +22,19 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+  // const [form, setForm] = useState({ name: "", email: "", message: "" });
+  // const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  // ) => {
+  //   setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setSubmitted(true);
+  // };
 
   return (
     <SectionContainer id="contact" className="bg-black/20">
@@ -46,7 +46,7 @@ export function ContactSection() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-4xl mx-auto">
         {/* Form */}
-        <motion.div
+        {/* <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -142,7 +142,7 @@ export function ContactSection() {
               </Button>
             </form>
           )}
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           initial={{ y: 30, opacity: 0 }}
